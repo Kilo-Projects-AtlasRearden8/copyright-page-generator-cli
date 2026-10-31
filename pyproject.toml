@@ -1,0 +1,28 @@
+[project]
+name = "copyright-page-generator"
+version = "0.1.0"
+description = "Local-first CLI that generates book copyright pages (year, rights holder, ISBN, edition) from local JSON templates, exporting Markdown or PDF."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "reportlab>=4.0",
+]
+license = {text = "MIT"}
+
+[project.scripts]
+copyright-page = "copyright_page.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["copyright_page"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+copyright_page = ["templates/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
