@@ -18,13 +18,13 @@ def test_default_template_renders_all_fields():
         {
             "year": "2026",
             "rights_holder": "Asdale Dynamics, LLC",
-            "isbn": "978-0-578-00000-0",
+            "isbn": "978-0-000-00000-0",
             "edition": "First Edition",
         }
     )
     assert "2026" in output
     assert "Asdale Dynamics, LLC" in output
-    assert "978-0-578-00000-0" in output
+    assert "978-0-000-00000-0" in output
     assert "First Edition" in output
     assert output.startswith("### Copyright")
 
@@ -35,7 +35,7 @@ def test_missing_required_value_raises():
             {
                 "year": "2026",
                 "rights_holder": "Asdale Dynamics, LLC",
-                "isbn": "978-0-578-00000-0",
+                "isbn": "978-0-000-00000-0",
             }
         )
 
@@ -56,7 +56,7 @@ def test_pdf_export_starts_with_pdf_header():
         {
             "year": "2026",
             "rights_holder": "Asdale Dynamics, LLC",
-            "isbn": "978-0-578-00000-0",
+            "isbn": "978-0-000-00000-0",
             "edition": "First Edition",
         }
     )
@@ -86,7 +86,7 @@ def test_cli_generate_markdown_to_stdout():
             "--rights-holder",
             "Asdale Dynamics, LLC",
             "--isbn",
-            "978-0-578-00000-0",
+            "978-0-000-00000-0",
             "--edition",
             "First Edition",
         ],
@@ -96,7 +96,7 @@ def test_cli_generate_markdown_to_stdout():
     assert result.returncode == 0
     assert "2026" in result.stdout
     assert "Asdale Dynamics, LLC" in result.stdout
-    assert "978-0-578-00000-0" in result.stdout
+    assert "978-0-000-00000-0" in result.stdout
     assert "First Edition" in result.stdout
 
 
@@ -113,7 +113,7 @@ def test_cli_generate_pdf_to_file(tmp_path):
             "--rights-holder",
             "Asdale Dynamics, LLC",
             "--isbn",
-            "978-0-578-00000-0",
+            "978-0-000-00000-0",
             "--edition",
             "First Edition",
             "--format",
